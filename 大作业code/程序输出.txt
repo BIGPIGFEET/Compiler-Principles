@@ -1,0 +1,1324 @@
+=== Test: program_1_1 ===
+{ 'declarations': [ { 'body': {'elements': [], 'type': 'FunctionExprBlock'},
+                      'name': 'program_1_1',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_1_1:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_1_2 ===
+{ 'declarations': [ { 'body': { 'elements': [ {'type': 'EmptyStmt'},
+                                              {'type': 'EmptyStmt'},
+                                              {'type': 'EmptyStmt'},
+                                              {'type': 'EmptyStmt'},
+                                              {'type': 'EmptyStmt'},
+                                              {'type': 'EmptyStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_1_2',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_1_2:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_1_3 ===
+{ 'declarations': [ { 'body': {'elements': [{'expression': None, 'type': 'ReturnStmt'}], 'type': 'FunctionExprBlock'},
+                      'name': 'program_1_3',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_1_3:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_1_4 ===
+{ 'declarations': [ { 'body': {'elements': [], 'type': 'FunctionExprBlock'},
+                      'name': 'program_1_4',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_1_4:', None, None, None)
+('param', 'a', None, None)
+('return', None, None, None)
+
+=== Test: program_1_5__1 ===
+{ 'declarations': [ { 'body': { 'elements': [{'expression': {'type': 'Literal', 'value': 1}, 'type': 'ReturnStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_1_5__1',
+                      'params': [],
+                      'return_type': 'i32',
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_1_5__1:', None, None, None)
+('return', '1', None, None)
+
+=== Test: program_1_5__2_invalid ===
+{ 'declarations': [ { 'body': {'elements': [{'expression': None, 'type': 'ReturnStmt'}], 'type': 'FunctionExprBlock'},
+                      'name': 'program_1_5__2',
+                      'params': [],
+                      'return_type': 'i32',
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Function expected return value but returned nothing
+
+=== Test: program_1_5__3_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [{'expression': {'type': 'Literal', 'value': 1}, 'type': 'ReturnStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_1_5__3',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Function declared void but returned value
+
+=== Test: program_2_1__1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': None,
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_2_1__1',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_2_1__1:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_2_1__2_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': None,
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_2_1__2',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Cannot infer type for 'b' without initializer
+
+=== Test: program_2_1__3 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': None,
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'init': None,
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': None},
+                                              { 'init': None,
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_2_1__3',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_2_1__3:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_2_2__1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'target': {'name': 'a', 'type': 'Identifier'},
+                                                'type': 'Assignment',
+                                                'value': {'type': 'Literal', 'value': 32}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_2_2__1',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_2_2__1:', None, None, None)
+('param', 'a', None, None)
+('=', '32', None, 'a')
+('return', None, None, None)
+
+=== Test: program_2_2__2_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'target': {'name': 'a', 'type': 'Identifier'},
+                                                'type': 'Assignment',
+                                                'value': {'type': 'Literal', 'value': 32}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_2_2__2',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Variable 'a' is not declared
+
+=== Test: program_2_3__1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': {'type': 'Literal', 'value': 1},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'init': {'type': 'Literal', 'value': 1},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_2_3__1',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_2_3__1:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_2_3__2_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': {'name': 'a', 'type': 'Identifier'},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_2_3__2',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Variable 'a' is not declared
+
+=== Test: program_2_3__3_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': None,
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'init': {'name': 'a', 'type': 'Identifier'},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_2_3__3',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Variable 'a' is used before initialization
+
+=== Test: program_2_3__4 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': {'type': 'Literal', 'value': 1},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'init': {'type': 'Literal', 'value': 2},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': None},
+                                              { 'init': {'type': 'Literal', 'value': 3},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_2_3__4',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_2_3__4:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_3_1__1 ===
+{ 'declarations': [ { 'body': { 'elements': [ {'expr': {'type': 'Literal', 'value': 0}, 'type': 'ExprStmt'},
+                                              {'expr': {'type': 'Literal', 'value': 1}, 'type': 'ExprStmt'},
+                                              {'expr': {'type': 'Literal', 'value': 2}, 'type': 'ExprStmt'},
+                                              {'expr': {'type': 'Literal', 'value': 3}, 'type': 'ExprStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_3_1__1',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_3_1__1:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_3_1__2 ===
+{ 'declarations': [ { 'body': { 'elements': [ {'expr': {'name': 'a', 'type': 'Identifier'}, 'type': 'ExprStmt'},
+                                              {'expr': {'name': 'a', 'type': 'Identifier'}, 'type': 'ExprStmt'},
+                                              {'expr': {'name': 'a', 'type': 'Identifier'}, 'type': 'ExprStmt'},
+                                              {'expr': {'name': 'a', 'type': 'Identifier'}, 'type': 'ExprStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_3_1__2',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_3_1__2:', None, None, None)
+('param', 'a', None, None)
+('return', None, None, None)
+
+=== Test: program_3_2 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'expr': { 'left': { 'left': {'type': 'Literal', 'value': 1},
+                                                                    'operator': '*',
+                                                                    'right': {'type': 'Literal', 'value': 2},
+                                                                    'type': 'BinaryExpression'},
+                                                          'operator': '/',
+                                                          'right': {'type': 'Literal', 'value': 3},
+                                                          'type': 'BinaryExpression'},
+                                                'type': 'ExprStmt'},
+                                              { 'expr': { 'left': {'type': 'Literal', 'value': 4},
+                                                          'operator': '+',
+                                                          'right': { 'left': {'type': 'Literal', 'value': 5},
+                                                                     'operator': '/',
+                                                                     'right': {'type': 'Literal', 'value': 6},
+                                                                     'type': 'BinaryExpression'},
+                                                          'type': 'BinaryExpression'},
+                                                'type': 'ExprStmt'},
+                                              { 'expr': { 'left': {'type': 'Literal', 'value': 7},
+                                                          'operator': '<',
+                                                          'right': {'type': 'Literal', 'value': 8},
+                                                          'type': 'BinaryExpression'},
+                                                'type': 'ExprStmt'},
+                                              { 'expr': { 'left': {'type': 'Literal', 'value': 9},
+                                                          'operator': '>',
+                                                          'right': {'type': 'Literal', 'value': 10},
+                                                          'type': 'BinaryExpression'},
+                                                'type': 'ExprStmt'},
+                                              { 'expr': { 'left': {'type': 'Literal', 'value': 11},
+                                                          'operator': '==',
+                                                          'right': {'type': 'Literal', 'value': 12},
+                                                          'type': 'BinaryExpression'},
+                                                'type': 'ExprStmt'},
+                                              { 'expr': { 'left': {'type': 'Literal', 'value': 13},
+                                                          'operator': '!=',
+                                                          'right': {'type': 'Literal', 'value': 14},
+                                                          'type': 'BinaryExpression'},
+                                                'type': 'ExprStmt'},
+                                              { 'expr': { 'left': { 'left': { 'left': {'type': 'Literal', 'value': 1},
+                                                                              'operator': '*',
+                                                                              'right': {'type': 'Literal', 'value': 2},
+                                                                              'type': 'BinaryExpression'},
+                                                                    'operator': '+',
+                                                                    'right': { 'left': {'type': 'Literal', 'value': 3},
+                                                                               'operator': '*',
+                                                                               'right': {'type': 'Literal', 'value': 4},
+                                                                               'type': 'BinaryExpression'},
+                                                                    'type': 'BinaryExpression'},
+                                                          'operator': '!=',
+                                                          'right': { 'left': { 'left': {'type': 'Literal', 'value': 4},
+                                                                               'operator': '/',
+                                                                               'right': {'type': 'Literal', 'value': 2},
+                                                                               'type': 'BinaryExpression'},
+                                                                     'operator': '-',
+                                                                     'right': { 'left': {'type': 'Literal', 'value': 3},
+                                                                                'operator': '/',
+                                                                                'right': { 'type': 'Literal',
+                                                                                           'value': 1},
+                                                                                'type': 'BinaryExpression'},
+                                                                     'type': 'BinaryExpression'},
+                                                          'type': 'BinaryExpression'},
+                                                'type': 'ExprStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_3_2',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_3_2:', None, None, None)
+('*', '1', '2', 't0')
+('/', 't0', '3', 't1')
+('/', '5', '6', 't2')
+('+', '4', 't2', 't3')
+('<', '7', '8', 't4')
+('>', '9', '10', 't5')
+('==', '11', '12', 't6')
+('!=', '13', '14', 't7')
+('*', '1', '2', 't8')
+('*', '3', '4', 't9')
+('+', 't8', 't9', 't10')
+('/', '4', '2', 't11')
+('/', '3', '1', 't12')
+('-', 't11', 't12', 't13')
+('!=', 't10', 't13', 't14')
+('return', None, None, None)
+
+=== Test: program_3_3__1 ===
+{ 'declarations': [ { 'body': {'elements': [], 'type': 'FunctionExprBlock'},
+                      'name': 'program_3_3__1',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_3_3__1:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_3_3__2 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'expr': { 'arguments': [],
+                                                          'callee': 'program_3_3__1',
+                                                          'type': 'CallExpression'},
+                                                'type': 'ExprStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_3_3__2',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'},
+                    { 'body': {'elements': [], 'type': 'FunctionExprBlock'},
+                      'name': 'program_3_3__1',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_3_3__2:', None, None, None)
+('call', 'program_3_3__1', 0, 't0')
+('return', None, None, None)
+('program_3_3__1:', None, None, None)
+
+=== Test: program_3_3__3_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'expr': { 'arguments': [{'type': 'Literal', 'value': 1}],
+                                                          'callee': 'program_3_3__1',
+                                                          'type': 'CallExpression'},
+                                                'type': 'ExprStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_3_3__3',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'},
+                    { 'body': {'elements': [], 'type': 'FunctionExprBlock'},
+                      'name': 'program_3_3__1',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Function program_3_3__1 expects 0 arguments
+
+=== Test: program_3_3__4_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'expr': { 'arguments': [ { 'name': 'program_3_3__4',
+                                                                           'type': 'Identifier'}],
+                                                          'callee': 'program_3_3__4',
+                                                          'type': 'CallExpression'},
+                                                'type': 'ExprStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_3_3__4',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'},
+                    { 'body': {'elements': [], 'type': 'FunctionExprBlock'},
+                      'name': 'program_3_3__4',
+                      'params': [{'mut': False, 'name': 'a', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Variable 'program_3_3__4' is not declared
+
+=== Test: program_4_1__1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'condition': { 'left': {'name': 'a', 'type': 'Identifier'},
+                                                               'operator': '>',
+                                                               'right': {'type': 'Literal', 'value': 0},
+                                                               'type': 'BinaryExpression'},
+                                                'else': None,
+                                                'then': { 'statements': [ { 'expression': { 'type': 'Literal',
+                                                                                            'value': 1},
+                                                                            'type': 'ReturnStmt'}],
+                                                          'type': 'Block'},
+                                                'type': 'IfStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_4_1__1',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': 'i32',
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_4_1__1:', None, None, None)
+('param', 'a', None, None)
+('>', 'a', '0', 't0')
+('ifz', 't0', None, 'L0')
+('return', '1', None, None)
+('goto', None, None, 'L1')
+('L0:', None, None, None)
+('L1:', None, None, None)
+
+=== Test: program_4_1__2 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'condition': { 'left': {'name': 'a', 'type': 'Identifier'},
+                                                               'operator': '>',
+                                                               'right': {'type': 'Literal', 'value': 0},
+                                                               'type': 'BinaryExpression'},
+                                                'else': { 'statements': [ { 'expression': { 'type': 'Literal',
+                                                                                            'value': 0},
+                                                                            'type': 'ReturnStmt'}],
+                                                          'type': 'Block'},
+                                                'then': { 'statements': [ { 'expression': { 'type': 'Literal',
+                                                                                            'value': 1},
+                                                                            'type': 'ReturnStmt'}],
+                                                          'type': 'Block'},
+                                                'type': 'IfStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_4_1__2',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': 'i32',
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_4_1__2:', None, None, None)
+('param', 'a', None, None)
+('>', 'a', '0', 't0')
+('ifz', 't0', None, 'L0')
+('return', '1', None, None)
+('goto', None, None, 'L1')
+('L0:', None, None, None)
+('return', '0', None, None)
+('L1:', None, None, None)
+
+=== Test: program_4_2 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'condition': { 'left': {'name': 'a', 'type': 'Identifier'},
+                                                               'operator': '>',
+                                                               'right': {'type': 'Literal', 'value': 0},
+                                                               'type': 'BinaryExpression'},
+                                                'else': { 'condition': { 'left': {'name': 'a', 'type': 'Identifier'},
+                                                                         'operator': '<',
+                                                                         'right': {'type': 'Literal', 'value': 0},
+                                                                         'type': 'BinaryExpression'},
+                                                          'else': { 'statements': [ { 'expression': { 'type': 'Literal',
+                                                                                                      'value': 0},
+                                                                                      'type': 'ReturnStmt'}],
+                                                                    'type': 'Block'},
+                                                          'then': { 'statements': [ { 'expression': { 'left': { 'name': 'a',
+                                                                                                                'type': 'Identifier'},
+                                                                                                      'operator': '-',
+                                                                                                      'right': { 'type': 'Literal',
+                                                                                                                 'value': 1},
+                                                                                                      'type': 'BinaryExpression'},
+                                                                                      'type': 'ReturnStmt'}],
+                                                                    'type': 'Block'},
+                                                          'type': 'IfStmt'},
+                                                'then': { 'statements': [ { 'expression': { 'left': { 'name': 'a',
+                                                                                                      'type': 'Identifier'},
+                                                                                            'operator': '+',
+                                                                                            'right': { 'type': 'Literal',
+                                                                                                       'value': 1},
+                                                                                            'type': 'BinaryExpression'},
+                                                                            'type': 'ReturnStmt'}],
+                                                          'type': 'Block'},
+                                                'type': 'IfStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_4_2',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': 'i32',
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_4_2:', None, None, None)
+('param', 'a', None, None)
+('>', 'a', '0', 't0')
+('ifz', 't0', None, 'L0')
+('+', 'a', '1', 't1')
+('return', 't1', None, None)
+('goto', None, None, 'L1')
+('L0:', None, None, None)
+('L1:', None, None, None)
+
+=== Test: program_5_1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'body': { 'statements': [ { 'target': { 'name': 'n',
+                                                                                        'type': 'Identifier'},
+                                                                            'type': 'Assignment',
+                                                                            'value': { 'left': { 'name': 'n',
+                                                                                                 'type': 'Identifier'},
+                                                                                       'operator': '-',
+                                                                                       'right': { 'type': 'Literal',
+                                                                                                  'value': 1},
+                                                                                       'type': 'BinaryExpression'}}],
+                                                          'type': 'Block'},
+                                                'condition': { 'left': {'name': 'n', 'type': 'Identifier'},
+                                                               'operator': '>',
+                                                               'right': {'type': 'Literal', 'value': 0},
+                                                               'type': 'BinaryExpression'},
+                                                'type': 'WhileStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_5_1',
+                      'params': [{'mut': True, 'name': 'n', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_5_1:', None, None, None)
+('param', 'n', None, None)
+('L0:', None, None, None)
+('>', 'n', '0', 't0')
+('ifz', 't0', None, 'L1')
+('-', 'n', '1', 't1')
+('=', 't1', None, 'n')
+('goto', None, None, 'L0')
+('L1:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_5_2 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'body': { 'statements': [ { 'target': { 'name': 'n',
+                                                                                        'type': 'Identifier'},
+                                                                            'type': 'Assignment',
+                                                                            'value': { 'left': { 'name': 'n',
+                                                                                                 'type': 'Identifier'},
+                                                                                       'operator': '-',
+                                                                                       'right': { 'type': 'Literal',
+                                                                                                  'value': 1},
+                                                                                       'type': 'BinaryExpression'}}],
+                                                          'type': 'Block'},
+                                                'end': { 'left': {'name': 'n', 'type': 'Identifier'},
+                                                         'operator': '+',
+                                                         'right': {'type': 'Literal', 'value': 1},
+                                                         'type': 'BinaryExpression'},
+                                                'mut': True,
+                                                'start': {'type': 'Literal', 'value': 1},
+                                                'type': 'ForStmt',
+                                                'var': 'i',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_5_2',
+                      'params': [{'mut': True, 'name': 'n', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_5_2:', None, None, None)
+('param', 'n', None, None)
+('+', 'n', '1', 't0')
+('declare', 'i', 'mut', None)
+('=', '1', None, 'i')
+('L0:', None, None, None)
+('<', 'i', 't0', 't1')
+('ifz', 't1', None, 'L1')
+('-', 'n', '1', 't2')
+('=', 't2', None, 'n')
+('+', 'i', '1', 't3')
+('=', 't3', None, 'i')
+('goto', None, None, 'L0')
+('L1:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_5_3 ===
+{ 'declarations': [ { 'body': { 'elements': [{'body': {'statements': [], 'type': 'Block'}, 'type': 'LoopStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_5_3',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_5_3:', None, None, None)
+('L0:', None, None, None)
+('goto', None, None, 'L0')
+('L1:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_5_4__1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'body': { 'statements': [{'expression': None, 'type': 'BreakStmt'}],
+                                                          'type': 'Block'},
+                                                'condition': { 'left': {'type': 'Literal', 'value': 1},
+                                                               'operator': '==',
+                                                               'right': {'type': 'Literal', 'value': 1},
+                                                               'type': 'BinaryExpression'},
+                                                'type': 'WhileStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_5_4__1',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_5_4__1:', None, None, None)
+('L0:', None, None, None)
+('==', '1', '1', 't0')
+('ifz', 't0', None, 'L1')
+('goto', None, None, 'L1')
+('goto', None, None, 'L0')
+('L1:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_5_4__2_invalid ===
+{ 'declarations': [ { 'body': {'elements': [{'expression': None, 'type': 'BreakStmt'}], 'type': 'FunctionExprBlock'},
+                      'name': 'program_5_4__2',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: break used outside of loop
+
+=== Test: program_5_4__3 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'body': {'statements': [{'type': 'ContinueStmt'}], 'type': 'Block'},
+                                                'condition': { 'left': {'type': 'Literal', 'value': 1},
+                                                               'operator': '==',
+                                                               'right': {'type': 'Literal', 'value': 0},
+                                                               'type': 'BinaryExpression'},
+                                                'type': 'WhileStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_5_4__3',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_5_4__3:', None, None, None)
+('L0:', None, None, None)
+('==', '1', '0', 't0')
+('ifz', 't0', None, 'L1')
+('goto', None, None, 'L0')
+('goto', None, None, 'L0')
+('L1:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_5_4__4_invalid ===
+{ 'declarations': [ { 'body': {'elements': [{'type': 'ContinueStmt'}], 'type': 'FunctionExprBlock'},
+                      'name': 'program_5_4__4',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: continue used outside of loop
+
+=== Test: program_6_1__2_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': {'type': 'Literal', 'value': 1},
+                                                'mut': False,
+                                                'name': 'c',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'target': {'name': 'c', 'type': 'Identifier'},
+                                                'type': 'Assignment',
+                                                'value': {'type': 'Literal', 'value': 2}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_6_1__2',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Cannot assign to immutable variable 'c'
+
+=== Test: program_6_2__1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': {'type': 'Literal', 'value': 1},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'init': { 'mut': True,
+                                                          'operand': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'RefExpr'},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': {'inner': 'i32', 'mut': True, 'type': 'ReferenceType'}},
+                                              { 'init': { 'operand': {'name': 'b', 'type': 'Identifier'},
+                                                          'type': 'DerefExpr'},
+                                                'mut': True,
+                                                'name': 'c',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_6_2__1',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_6_2__1:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_6_2__2 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': {'type': 'Literal', 'value': 1},
+                                                'mut': False,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'init': { 'mut': False,
+                                                          'operand': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'RefExpr'},
+                                                'mut': False,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': {'inner': 'i32', 'mut': False, 'type': 'ReferenceType'}},
+                                              { 'init': { 'operand': {'name': 'b', 'type': 'Identifier'},
+                                                          'type': 'DerefExpr'},
+                                                'mut': False,
+                                                'name': 'c',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_6_2__2',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_6_2__2:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_6_2__3_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': {'type': 'Literal', 'value': 1},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'init': { 'operand': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'DerefExpr'},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_6_2__3',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Can only deref a reference
+
+=== Test: program_6_2__4_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': {'type': 'Literal', 'value': 1},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'init': { 'mut': False,
+                                                          'operand': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'RefExpr'},
+                                                'mut': False,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': None},
+                                              { 'init': { 'mut': True,
+                                                          'operand': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'RefExpr'},
+                                                'mut': True,
+                                                'name': 'c',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_6_2__4',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Cannot borrow 'a' as mutable because it is already borrowed
+
+=== Test: program_6_2__5_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': {'type': 'Literal', 'value': 1},
+                                                'mut': False,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'init': { 'mut': True,
+                                                          'operand': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'RefExpr'},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_6_2__5',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Cannot create mutable reference to immutable variable 'a'
+
+=== Test: program_6_2__6 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': {'type': 'Literal', 'value': 1},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'init': { 'mut': False,
+                                                          'operand': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'RefExpr'},
+                                                'mut': False,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': None},
+                                              { 'init': { 'mut': False,
+                                                          'operand': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'RefExpr'},
+                                                'mut': False,
+                                                'name': 'c',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_6_2__6',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_6_2__6:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_7_1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': { 'elements': [ { 'init': { 'left': { 'left': { 'name': 'x',
+                                                                                                        'type': 'Identifier'},
+                                                                                              'operator': '*',
+                                                                                              'right': { 'name': 'x',
+                                                                                                         'type': 'Identifier'},
+                                                                                              'type': 'BinaryExpression'},
+                                                                                    'operator': '+',
+                                                                                    'right': { 'name': 'x',
+                                                                                               'type': 'Identifier'},
+                                                                                    'type': 'BinaryExpression'},
+                                                                          'mut': True,
+                                                                          'name': 't',
+                                                                          'type': 'VarDecl',
+                                                                          'var_type': None},
+                                                                        { 'target': {'name': 't', 'type': 'Identifier'},
+                                                                          'type': 'Assignment',
+                                                                          'value': { 'left': { 'name': 't',
+                                                                                               'type': 'Identifier'},
+                                                                                     'operator': '+',
+                                                                                     'right': { 'left': { 'name': 'x',
+                                                                                                          'type': 'Identifier'},
+                                                                                                'operator': '*',
+                                                                                                'right': { 'name': 'y',
+                                                                                                           'type': 'Identifier'},
+                                                                                                'type': 'BinaryExpression'},
+                                                                                     'type': 'BinaryExpression'}},
+                                                                        {'name': 't', 'type': 'Identifier'}],
+                                                          'type': 'FunctionExprBlock'},
+                                                'mut': True,
+                                                'name': 'z',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_7_1',
+                      'params': [{'mut': True, 'name': 'x', 'type': 'i32'}, {'mut': True, 'name': 'y', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_7_1:', None, None, None)
+('param', 'x', None, None)
+('param', 'y', None, None)
+('return', None, None, None)
+
+=== Test: program_7_2 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': { 'left': { 'left': {'name': 'x', 'type': 'Identifier'},
+                                                                    'operator': '*',
+                                                                    'right': {'name': 'x', 'type': 'Identifier'},
+                                                                    'type': 'BinaryExpression'},
+                                                          'operator': '+',
+                                                          'right': {'name': 'x', 'type': 'Identifier'},
+                                                          'type': 'BinaryExpression'},
+                                                'mut': True,
+                                                'name': 't',
+                                                'type': 'VarDecl',
+                                                'var_type': None},
+                                              { 'target': {'name': 't', 'type': 'Identifier'},
+                                                'type': 'Assignment',
+                                                'value': { 'left': {'name': 't', 'type': 'Identifier'},
+                                                           'operator': '+',
+                                                           'right': { 'left': {'name': 'x', 'type': 'Identifier'},
+                                                                      'operator': '*',
+                                                                      'right': {'name': 'y', 'type': 'Identifier'},
+                                                                      'type': 'BinaryExpression'},
+                                                           'type': 'BinaryExpression'}},
+                                              {'name': 't', 'type': 'Identifier'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_7_2',
+                      'params': [{'mut': True, 'name': 'x', 'type': 'i32'}, {'mut': True, 'name': 'y', 'type': 'i32'}],
+                      'return_type': 'i32',
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_7_2:', None, None, None)
+('param', 'x', None, None)
+('param', 'y', None, None)
+('*', 'x', 'y', 't0')
+('+', 't', 't0', 't1')
+('=', 't1', None, 't')
+('return', None, None, None)
+
+=== Test: program_7_3 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': { 'condition': { 'left': {'name': 'a', 'type': 'Identifier'},
+                                                                         'operator': '>',
+                                                                         'right': {'type': 'Literal', 'value': 0},
+                                                                         'type': 'BinaryExpression'},
+                                                          'else': { 'elements': [{'type': 'Literal', 'value': 0}],
+                                                                    'type': 'FunctionExprBlock'},
+                                                          'then': { 'elements': [{'type': 'Literal', 'value': 1}],
+                                                                    'type': 'FunctionExprBlock'},
+                                                          'type': 'IfExpr'},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_7_3',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_7_3:', None, None, None)
+('param', 'a', None, None)
+('return', None, None, None)
+
+=== Test: program_7_4__1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': { 'body': { 'elements': [ { 'expression': { 'type': 'Literal',
+                                                                                                    'value': 1},
+                                                                                    'type': 'BreakStmt'}],
+                                                                    'type': 'FunctionExprBlock'},
+                                                          'type': 'LoopExpr'},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_7_4__1',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_7_4__1:', None, None, None)
+('return', None, None, None)
+
+=== Test: program_7_4__2_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [{'expression': {'type': 'Literal', 'value': 2}, 'type': 'BreakStmt'}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_7_4__2',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: break used outside of loop
+
+=== Test: program_8_1__1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': None,
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': {'inner': 'i32', 'size': 3, 'type': 'ArrayType'}},
+                                              { 'target': {'name': 'a', 'type': 'Identifier'},
+                                                'type': 'Assignment',
+                                                'value': { 'elements': [ {'type': 'Literal', 'value': 1},
+                                                                         {'type': 'Literal', 'value': 2},
+                                                                         {'type': 'Literal', 'value': 3}],
+                                                           'type': 'ArrayLiteral'}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_8_1__1',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_8_1__1:', None, None, None)
+('new_array', 3, None, 't0')
+('[]=', 't0', 0, '1')
+('[]=', 't0', 1, '2')
+('[]=', 't0', 2, '3')
+('=', 't0', None, 'a')
+('return', None, None, None)
+
+=== Test: program_8_1__2_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': None,
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': {'inner': 'i32', 'size': 2, 'type': 'ArrayType'}},
+                                              { 'target': {'name': 'a', 'type': 'Identifier'},
+                                                'type': 'Assignment',
+                                                'value': {'type': 'Literal', 'value': 1}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_8_1__2',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Assigning i32 to {'type': 'ArrayType', 'inner': 'i32', 'size': 2}
+
+=== Test: program_8_1__3_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': None,
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': {'inner': 'i32', 'size': 2, 'type': 'ArrayType'}},
+                                              { 'target': {'name': 'a', 'type': 'Identifier'},
+                                                'type': 'Assignment',
+                                                'value': { 'elements': [ {'type': 'Literal', 'value': 1},
+                                                                         {'type': 'Literal', 'value': 2},
+                                                                         {'type': 'Literal', 'value': 3}],
+                                                           'type': 'ArrayLiteral'}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_8_1__3',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Assigning {'type': 'ArrayType', 'inner': 'i32', 'size': 3} to {'type': 'ArrayType', 'inner': 'i32', 'size': 2}
+
+=== Test: program_8_1__4_invalid ===
+❌ 其他异常: Cannot use type keyword 'i32' as array element
+
+=== Test: program_8_2__1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': { 'index': {'type': 'Literal', 'value': 0},
+                                                          'target': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'IndexExpr'},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'target': { 'index': {'type': 'Literal', 'value': 0},
+                                                            'target': {'name': 'a', 'type': 'Identifier'},
+                                                            'type': 'IndexExpr'},
+                                                'type': 'Assignment',
+                                                'value': {'type': 'Literal', 'value': 1}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_8_2__1',
+                      'params': [{'mut': True, 'name': 'a', 'type': {'inner': 'i32', 'size': 3, 'type': 'ArrayType'}}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+('program_8_2__1:', None, None, None)
+('param', 'a', None, None)
+('[]=', 'a', '0', '1')
+('return', None, None, None)
+
+=== Test: program_8_2__2_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': { 'elements': [ {'type': 'Literal', 'value': 1},
+                                                                        {'type': 'Literal', 'value': 2},
+                                                                        {'type': 'Literal', 'value': 3}],
+                                                          'type': 'ArrayLiteral'},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': None},
+                                              { 'init': { 'index': {'name': 'a', 'type': 'Identifier'},
+                                                          'target': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'IndexExpr'},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_8_2__2',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+❌ program_8_2__2_invalid: 错误程序未检查出
+
+=== Test: program_8_2__3_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': { 'elements': [ {'type': 'Literal', 'value': 1},
+                                                                        {'type': 'Literal', 'value': 2},
+                                                                        {'type': 'Literal', 'value': 3}],
+                                                          'type': 'ArrayLiteral'},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': None},
+                                              { 'init': { 'index': {'type': 'Literal', 'value': 3},
+                                                          'target': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'IndexExpr'},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_8_2__3',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+❌ program_8_2__3_invalid: 错误程序未检查出
+
+=== Test: program_8_2__4_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': { 'elements': [ {'type': 'Literal', 'value': 1},
+                                                                        {'type': 'Literal', 'value': 2},
+                                                                        {'type': 'Literal', 'value': 3}],
+                                                          'type': 'ArrayLiteral'},
+                                                'mut': False,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': {'inner': 'i32', 'size': 3, 'type': 'ArrayType'}},
+                                              { 'target': { 'index': {'type': 'Literal', 'value': 0},
+                                                            'target': {'name': 'a', 'type': 'Identifier'},
+                                                            'type': 'IndexExpr'},
+                                                'type': 'Assignment',
+                                                'value': {'type': 'Literal', 'value': 4}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_8_2__4',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功通过语义分析
+❌ program_8_2__4_invalid: 错误程序未检查出
+
+=== Test: program_9_1__1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': None,
+                                                'mut': False,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': {'elements': ['i32', 'i32', 'i32'], 'type': 'TupleType'}},
+                                              { 'target': {'name': 'a', 'type': 'Identifier'},
+                                                'type': 'Assignment',
+                                                'value': { 'elements': [ {'type': 'Literal', 'value': 1},
+                                                                         {'type': 'Literal', 'value': 2},
+                                                                         {'type': 'Literal', 'value': 3}],
+                                                           'type': 'TupleLiteral'}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_9_1__1',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+❌ 正确程序检查出意料之外的错误: Cannot assign to immutable variable 'a'
+
+=== Test: program_9_1__2_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': None,
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': {'elements': ['i32', 'i32'], 'type': 'TupleType'}},
+                                              { 'target': {'name': 'a', 'type': 'Identifier'},
+                                                'type': 'Assignment',
+                                                'value': {'type': 'Literal', 'value': 1}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_9_1__2',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Assigning i32 to {'type': 'TupleType', 'elements': ['i32', 'i32']}
+
+=== Test: program_9_1__3_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': None,
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': {'elements': ['i32', 'i32'], 'type': 'TupleType'}},
+                                              { 'target': {'name': 'a', 'type': 'Identifier'},
+                                                'type': 'Assignment',
+                                                'value': { 'elements': [ {'type': 'Literal', 'value': 1},
+                                                                         {'type': 'Literal', 'value': 2},
+                                                                         {'type': 'Literal', 'value': 3}],
+                                                           'type': 'TupleLiteral'}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_9_1__3',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Assigning {'type': 'Tuple', 'elements': ['i32', 'i32', 'i32']} to {'type': 'TupleType', 'elements': ['i32', 'i32']}
+
+=== Test: program_9_1__4_invalid ===
+❌ 其他异常: Unexpected type keyword 'i32' in expression
+
+=== Test: program_9_2__1 ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': { 'index': 0,
+                                                          'target': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'TupleAccess'},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': 'i32'},
+                                              { 'target': { 'index': 0,
+                                                            'target': {'name': 'a', 'type': 'Identifier'},
+                                                            'type': 'TupleAccess'},
+                                                'type': 'Assignment',
+                                                'value': {'type': 'Literal', 'value': 1}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_9_2__1',
+                      'params': [{'mut': True, 'name': 'a', 'type': {'elements': ['i32', 'i32'], 'type': 'TupleType'}}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+❌ 正确程序检查出意料之外的错误: Can only access field on tuple
+
+=== Test: program_9_2__2_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': { 'elements': [ {'type': 'Literal', 'value': 1},
+                                                                        {'type': 'Literal', 'value': 2},
+                                                                        {'type': 'Literal', 'value': 3}],
+                                                          'type': 'TupleLiteral'},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': None},
+                                              { 'init': { 'index': 'a',
+                                                          'target': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'TupleAccess'},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_9_2__2',
+                      'params': [{'mut': True, 'name': 'a', 'type': 'i32'}],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+❌ 其他异常: '>=' not supported between instances of 'str' and 'int'
+
+=== Test: program_9_2__3_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': { 'elements': [ {'type': 'Literal', 'value': 1},
+                                                                        {'type': 'Literal', 'value': 2},
+                                                                        {'type': 'Literal', 'value': 3}],
+                                                          'type': 'TupleLiteral'},
+                                                'mut': True,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': None},
+                                              { 'init': { 'index': 3,
+                                                          'target': {'name': 'a', 'type': 'Identifier'},
+                                                          'type': 'TupleAccess'},
+                                                'mut': True,
+                                                'name': 'b',
+                                                'type': 'VarDecl',
+                                                'var_type': None}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_9_2__3',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Tuple index out of bounds
+
+=== Test: program_9_2__4_invalid ===
+{ 'declarations': [ { 'body': { 'elements': [ { 'init': { 'elements': [ {'type': 'Literal', 'value': 1},
+                                                                        {'type': 'Literal', 'value': 2},
+                                                                        {'type': 'Literal', 'value': 3}],
+                                                          'type': 'TupleLiteral'},
+                                                'mut': False,
+                                                'name': 'a',
+                                                'type': 'VarDecl',
+                                                'var_type': {'elements': ['i32', 'i32', 'i32'], 'type': 'TupleType'}},
+                                              { 'target': { 'index': 0,
+                                                            'target': {'name': 'a', 'type': 'Identifier'},
+                                                            'type': 'TupleAccess'},
+                                                'type': 'Assignment',
+                                                'value': {'type': 'Literal', 'value': 4}}],
+                                'type': 'FunctionExprBlock'},
+                      'name': 'program_9_2__4',
+                      'params': [],
+                      'return_type': None,
+                      'type': 'FunctionDecl'}],
+  'type': 'Program'}
+✅ 成功检查出程序的错误: Declared type {'type': 'TupleType', 'elements': ['i32', 'i32', 'i32']}, got {'type': 'Tuple', 'elements': ['i32', 'i32', 'i32']}
+
+✅ Summary: 53/61 passed
